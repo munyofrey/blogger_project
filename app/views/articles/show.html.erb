@@ -15,7 +15,9 @@
 <p><%= @article.body %></p>
 <%= render partial: 'comments/form' %>
 <%= link_to "Return to full posting list", articles_path %>
+<% if logged_in? %>
 <%= link_to "Delete posting", article_path(@article), method: :delete %>
 <%= link_to "Edit posting", edit_article_path(@article) %>
+<% end %>
  <h3>Comments (<%= @article.comments.size %>)</h3>
  <%= render partial: 'articles/comment', collection: @article.comments %>
